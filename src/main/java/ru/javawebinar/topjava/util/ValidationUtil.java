@@ -6,6 +6,9 @@ import ru.javawebinar.topjava.util.exception.NotFoundException;
 
 public class ValidationUtil {
 
+    private ValidationUtil() {
+    }
+
     public static void checkNotFoundWithId(boolean found, int id) {
         checkNotFound(found, "id=" + id);
     }
@@ -31,7 +34,7 @@ public class ValidationUtil {
         }
     }
 
-    public static void checkIdConsistent(BaseEntity entity, int id) {
+    public static void assureIdConsistent(BaseEntity entity, int id) {
 //      http://stackoverflow.com/a/32728226/548473
         if (entity.isNew()) {
             entity.setId(id);
